@@ -11,13 +11,13 @@
     <!-- Button to copy account number -->
     <button id="copyButton">Copy Account Number</button>
     
-    <!-- Button to go to BML app -->
+    <!-- Button to go to BML App in Play Store -->
     <button id="redirectButton">Go to BML App</button>
 
     <script>
         // Replace '7703219599101' with the actual account number
         const accountNumber = '7703219599101';
-        const appURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // BML app URL
+        const appStoreURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // Play Store URL
 
         // Function to copy account number to clipboard
         function copyAccountNumber() {
@@ -28,9 +28,9 @@
             });
         }
 
-        // Function to redirect to BML app
+        // Function to redirect to BML app in Play Store
         function goToBMLApp() {
-            window.location.href = appURL;
+            window.location.href = appStoreURL;
         }
 
         // Add event listener for copy button
