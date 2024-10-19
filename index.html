@@ -54,10 +54,8 @@
 
         // Function to copy account number to clipboard
         function copyAccountNumber() {
-            navigator.clipboard.writeText(accountNumber).then(() => {
-                alert('Account number copied to clipboard!');
-            }).catch(err => {
-                alert('Failed to copy account number: ' + err);
+            navigator.clipboard.writeText(accountNumber).catch(err => {
+                console.error('Failed to copy account number: ', err);
             });
         }
 
