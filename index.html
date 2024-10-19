@@ -32,14 +32,14 @@
             margin: 10px 0; /* Space between buttons */
             cursor: pointer; /* Pointer cursor on hover */
             width: 80%; /* Button width */
-            transition: background-color 0.3s; /* Smooth transition */
+            transition: background-color 0.3s, color 0.3s; /* Smooth transition */
         }
         button:hover {
             background-color: #005999; /* Darker shade on hover */
         }
         .copied {
-            background-color: green; /* Change background color to green */
-            color: white; /* Keep text color white */
+            background-color: green !important; /* Force background color to green */
+            color: white !important; /* Keep text color white */
         }
     </style>
 </head>
