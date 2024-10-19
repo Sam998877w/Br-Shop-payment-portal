@@ -32,9 +32,14 @@
             margin: 10px 0; /* Space between buttons */
             cursor: pointer; /* Pointer cursor on hover */
             width: 80%; /* Button width */
+            transition: background-color 0.3s; /* Smooth transition */
         }
         button:hover {
             background-color: #005999; /* Darker shade on hover */
+        }
+        .copied {
+            background-color: green; /* Change background color to green */
+            color: white; /* Keep text color white */
         }
     </style>
 </head>
@@ -54,7 +59,17 @@
 
         // Function to copy account number to clipboard
         function copyAccountNumber() {
-            navigator.clipboard.writeText(accountNumber).catch(err => {
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                const copyButton = document.getElementById('copyButton');
+                copyButton.textContent = 'Copied'; // Change button text
+                copyButton.classList.add('copied'); // Add class for styling
+
+                // Reset the button text and style after 2 seconds
+                setTimeout(() => {
+                    copyButton.textContent = 'Copy Account Number';
+                    copyButton.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
                 console.error('Failed to copy account number: ', err);
             });
         }
