@@ -11,13 +11,13 @@
     <!-- Button to copy account number -->
     <button id="copyButton">Copy Account Number</button>
 
-    <!-- Button to go to BML App in Play Store -->
-    <button id="redirectButton">Go to BML App</button>
+    <!-- Button to open BML app directly -->
+    <button id="openAppButton">Open BML App</button>
 
     <script>
         // Replace '7703219599101' with the actual account number
         const accountNumber = '7703219599101';
-        const appStoreURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // Play Store URL
+        const appDirectLink = 'https://ebanking.bankofmaldives.com.mv/qrpay/';  // Direct app link
 
         // Function to copy account number to clipboard
         function copyAccountNumber() {
@@ -28,16 +28,16 @@
             });
         }
 
-        // Function to redirect to BML app in Play Store
-        function goToBMLApp() {
-            window.location.href = appStoreURL;
+        // Function to open BML app directly
+        function openBMLApp() {
+            window.location.href = appDirectLink;
         }
 
         // Add event listener for copy button
         document.getElementById('copyButton').addEventListener('click', copyAccountNumber);
 
-        // Add event listener for redirect button
-        document.getElementById('redirectButton').addEventListener('click', goToBMLApp);
+        // Add event listener for open app button
+        document.getElementById('openAppButton').addEventListener('click', openBMLApp);
     </script>
 </body>
 </html>
