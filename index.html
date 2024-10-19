@@ -6,20 +6,26 @@
     <title>Account Number Redirect</title>
 </head>
 <body>
-    <h1>Redirecting to App...</h1>
-    <script>
-        // Replace '123456789' with the actual account number
-        const accountNumber = '7703219599101';
-        
-        // Copy account number to clipboard
-        navigator.clipboard.writeText(accountNumber).then(() => {
-            console.log('Account number copied to clipboard');
-        }).catch(err => {
-            console.error('Failed to copy account number: ', err);
-        });
+    <h1>Click the button to copy the account number and proceed</h1>
+    <button id="copyButton">Copy Account Number & Redirect</button>
 
-        // Redirect to your app after copying the number
-        window.location.href = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';
+    <script>
+        // Replace '7703219599101' with the actual account number
+        const accountNumber = '7703219599101';
+        const appURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // URL to redirect
+
+        // Function to copy account number to clipboard and redirect
+        function copyAndRedirect() {
+            navigator.clipboard.writeText(accountNumber).then(() => {
+                alert('Account number copied to clipboard! Redirecting...');
+                window.location.href = appURL;
+            }).catch(err => {
+                alert('Failed to copy account number: ' + err);
+            });
+        }
+
+        // Add event listener to button
+        document.getElementById('copyButton').addEventListener('click', copyAndRedirect);
     </script>
 </body>
 </html>
