@@ -3,29 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Account Number Redirect</title>
+    <title>Account Number Actions</title>
 </head>
 <body>
-    <h1>Click the button to copy the account number and proceed</h1>
-    <button id="copyButton">Copy Account Number & Redirect</button>
+    <h1>Account Number Actions</h1>
+
+    <!-- Button to copy account number -->
+    <button id="copyButton">Copy Account Number</button>
+    
+    <!-- Button to go to BML app -->
+    <button id="redirectButton">Go to BML App</button>
 
     <script>
         // Replace '7703219599101' with the actual account number
         const accountNumber = '7703219599101';
-        const appURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // URL to redirect
+        const appURL = 'https://play.google.com/store/apps/details?id=mv.com.bml.mib';  // BML app URL
 
-        // Function to copy account number to clipboard and redirect
-        function copyAndRedirect() {
+        // Function to copy account number to clipboard
+        function copyAccountNumber() {
             navigator.clipboard.writeText(accountNumber).then(() => {
-                alert('Account number copied to clipboard! Redirecting...');
-                window.location.href = appURL;
+                alert('Account number copied to clipboard!');
             }).catch(err => {
                 alert('Failed to copy account number: ' + err);
             });
         }
 
-        // Add event listener to button
-        document.getElementById('copyButton').addEventListener('click', copyAndRedirect);
+        // Function to redirect to BML app
+        function goToBMLApp() {
+            window.location.href = appURL;
+        }
+
+        // Add event listener for copy button
+        document.getElementById('copyButton').addEventListener('click', copyAccountNumber);
+
+        // Add event listener for redirect button
+        document.getElementById('redirectButton').addEventListener('click', goToBMLApp);
     </script>
 </body>
 </html>
